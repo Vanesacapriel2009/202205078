@@ -1,0 +1,68 @@
+import random
+import os
+
+class ElementoJuego:
+    """Clase base para limpiar pantalla."""
+    def limpiar(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+class Jugador(ElementoJuego):
+    """Controla la vida y piezas del personaje."""
+    def __init__(self):
+        self.vida = 100
+        self.piezas = 0
+
+class Juego(ElementoJuego):
+    """Controla el flujo de la partida."""
+    def __init__(self):
+        self.p = Jugador()
+
+    def jugar(self):
+        self.limpiar()
+        print('¡Te absorbió la TV! Consigue 3 piezas del portal y huye sin morir.\nEstilo: Animado y divertido.')
+        input('Presiona Enter para empezar...')
+        
+        while self.p.vida > 0:
+            self.limpiar()
+            print(f"Vida: {self.p.vida}% | Piezas: {self.p.piezas}/3\n" + "-"*45)
+            print('1. Correr por los tejados | 2. Enfrentar zombies | 3. Buscar hamburguesa | 4. Activar portal')
+            
+            accion = input('Selecciona una opción: ')
+            self.limpiar()
+
+            if accion == '1':
+                if random.randint(1, 10) > 4:
+                    self.p.piezas += 1
+                    print('¡Genial! Encontraste una pieza brillante del portal.')
+                else:
+                    print('No viste nada esta vez, solo estática de tele vieja.')
+            elif accion == '2':
+                golpe = random.randint(10, 29)
+                self.p.vida -= golpe
+                print(f'Los zombies te rasguñaron. Pierdes {golpe} de vida.')
+            elif accion == '3':
+                cura = random.randint(15, 29)
+                self.p.vida = min(100, self.p.vida + cura)
+                print(f'¡Comida! Recuperas {cura} de vida.')
+            elif accion == '4':
+                if self.p.piezas >= 3:
+                    print('¡PORTAL ACTIVADO! Regresas a tu sala a salvo. ¡Ganaste!')
+                    break
+                print('El portal no enciende. Te faltan piezas.')
+            else:
+                print('Opción inválida. ¡Concéntrate!')
+
+            if self.p.vida <= 0:
+                print('¡Game Over! Te convertiste en un extra de la tele.')
+                break
+
+            input('\nPresiona Enter para continuar...')
+
+if __name__ == '__main__':
+    Juego().jugar()
+
+"""
+Padre: class ElementoJuego
+
+Hijas: class Jugador, class Juego
+"""
