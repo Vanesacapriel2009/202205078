@@ -9,3 +9,6 @@ Mi diagrama detalla la lógica del videojuego "JuegoZombieTV", donde inicias con
 
 # Fase3.Desarrollo
 Mi código en Python es un videojuego de texto donde un personaje absorbido por la televisión debe recolectar 3 piezas para activar un portal y escapar antes de morir. Utiliza programación orientada a objetos con las clases ElementoJuego, Jugador y Juego para gestionar un menú interactivo por turnos, donde el jugador decide entre buscar piezas, pelear con zombies perdiendo vida, comer hamburguesas para sanar o intentar activar el portal, resultando en victoria al escapar o Game Over si la vida llega a cero.
+
+# Fase4. GitHub
+cree mi repositorio donde subí mi juego en la cual le coloque un análisis con el cual logre crear mi juego, diseño de mi diagrama y el desarrollo de mi código y para mostrar mi trabajo utilice GitHub mostrando mi proceso y mis documentos para lograr el resultado final. <3 
